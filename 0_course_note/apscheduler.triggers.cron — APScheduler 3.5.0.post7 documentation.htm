@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#module-apscheduler.triggers.cron -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/sphinx_rtd_theme.css" type="text/css">
+  
+
+  
+        <link rel="index" title="Index" href="https://apscheduler.readthedocs.io/en/latest/genindex.html">
+        <link rel="search" title="Search" href="https://apscheduler.readthedocs.io/en/latest/search.html">
+    <link rel="top" title="APScheduler 3.5.0.post7 documentation" href="https://apscheduler.readthedocs.io/en/latest/index.html"> 
+
+  
+  <script type="text/javascript" async="" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/ga.js"></script><script src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html">
+
+<link rel="stylesheet" href="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'modules/triggers/cron' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> -->
+<script charset="utf-8" src="chrome-extension://jgphnjokjhjlcnnajmfjlacjnjkhleah/js/btype.js"></script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+<body class="wy-body-for-nav" role="document" style="">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://apscheduler.readthedocs.io/en/latest/index.html" class="icon icon-home"> APScheduler
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://apscheduler.readthedocs.io/en/latest/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/userguide.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/versionhistory.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/migration.html">Migrating from previous versions of APScheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/contributing.html">Contributing to APScheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/extending.html">Extending APScheduler</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://apscheduler.readthedocs.io/en/latest/index.html">APScheduler</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://apscheduler.readthedocs.io/en/latest/index.html">Docs</a> »</li>
+        
+      <li><code class="docutils literal"><span class="pre">apscheduler.triggers.cron</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/agronholm/apscheduler/blob/master/docs/modules/triggers/cron.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apscheduler.triggers.cron">
+<span id="apscheduler-triggers-cron"></span><h1><a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#module-apscheduler.triggers.cron" title="apscheduler.triggers.cron"><code class="xref py py-mod docutils literal"><span class="pre">apscheduler.triggers.cron</span></code></a><a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#module-apscheduler.triggers.cron" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#api" title="Permalink to this headline">¶</a></h2>
+<p>Trigger alias for <a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/modules/schedulers/base.html#apscheduler.schedulers.base.BaseScheduler.add_job" title="apscheduler.schedulers.base.BaseScheduler.add_job"><code class="xref py py-meth docutils literal"><span class="pre">add_job()</span></code></a>: <code class="docutils literal"><span class="pre">cron</span></code></p>
+<dl class="class">
+<dt id="apscheduler.triggers.cron.CronTrigger">
+<em class="property">class </em><code class="descclassname">apscheduler.triggers.cron.</code><code class="descname">CronTrigger</code><span class="sig-paren">(</span><em>year=None</em>, <em>month=None</em>, <em>day=None</em>, <em>week=None</em>, <em>day_of_week=None</em>, <em>hour=None</em>, <em>minute=None</em>, <em>second=None</em>, <em>start_date=None</em>, <em>end_date=None</em>, <em>timezone=None</em>, <em>jitter=None</em><span class="sig-paren">)</span><a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#apscheduler.triggers.cron.CronTrigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/base.html#apscheduler.triggers.base.BaseTrigger" title="apscheduler.triggers.base.BaseTrigger"><code class="xref py py-class docutils literal"><span class="pre">apscheduler.triggers.base.BaseTrigger</span></code></a></p>
+<p>Triggers when current time matches all specified time constraints,
+similarly to how the UNIX cron scheduler works.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>year</strong> (<em>int|str</em>) – 4-digit year</li>
+<li><strong>month</strong> (<em>int|str</em>) – month (1-12)</li>
+<li><strong>day</strong> (<em>int|str</em>) – day of the (1-31)</li>
+<li><strong>week</strong> (<em>int|str</em>) – ISO week (1-53)</li>
+<li><strong>day_of_week</strong> (<em>int|str</em>) – number or name of weekday (0-6 or mon,tue,wed,thu,fri,sat,sun)</li>
+<li><strong>hour</strong> (<em>int|str</em>) – hour (0-23)</li>
+<li><strong>minute</strong> (<em>int|str</em>) – minute (0-59)</li>
+<li><strong>second</strong> (<em>int|str</em>) – second (0-59)</li>
+<li><strong>start_date</strong> (<em>datetime|str</em>) – earliest possible date/time to trigger on (inclusive)</li>
+<li><strong>end_date</strong> (<em>datetime|str</em>) – latest possible date/time to trigger on (inclusive)</li>
+<li><strong>timezone</strong> (<em>datetime.tzinfo|str</em>) – time zone to use for the date/time calculations (defaults
+to scheduler timezone)</li>
+<li><strong>jitter</strong> (<em>int|None</em>) – advance or delay the job execution by <code class="docutils literal"><span class="pre">jitter</span></code> seconds at most.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The first weekday is always <strong>monday</strong>.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This is the most powerful of the built-in triggers in APScheduler. You can specify a variety of different expressions
+on each field, and when determining the next execution time, it finds the earliest possible time that satisfies the
+conditions in every field. This behavior resembles the “Cron” utility found in most UNIX-like operating systems.</p>
+<p>You can also specify the starting date and ending dates for the cron-style schedule through the <code class="docutils literal"><span class="pre">start_date</span></code> and
+<code class="docutils literal"><span class="pre">end_date</span></code> parameters, respectively. They can be given as a date/datetime object or text (in the
+<a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format).</p>
+<p>Unlike with crontab expressions, you can omit fields that you don’t need. Fields greater than the least significant
+explicitly defined field default to <code class="docutils literal"><span class="pre">*</span></code> while lesser fields default to their minimum values except for <code class="docutils literal"><span class="pre">week</span></code> and
+<code class="docutils literal"><span class="pre">day_of_week</span></code> which default to <code class="docutils literal"><span class="pre">*</span></code>. For example, <code class="docutils literal"><span class="pre">day=1,</span> <span class="pre">minute=20</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">year='*',</span> <span class="pre">month='*',</span> <span class="pre">day=1,</span> <span class="pre">week='*',</span> <span class="pre">day_of_week='*',</span> <span class="pre">hour='*',</span> <span class="pre">minute=20,</span> <span class="pre">second=0</span></code>. The job will then execute
+on the first day of every month on every year at 20 minutes of every hour. The code examples below should further
+illustrate this behavior.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The behavior for omitted fields was changed in APScheduler 2.0.
+Omitted fields previously always defaulted to <code class="docutils literal"><span class="pre">*</span></code>.</p>
+</div>
+</div>
+<div class="section" id="expression-types">
+<h2>Expression types<a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#expression-types" title="Permalink to this headline">¶</a></h2>
+<p>The following table lists all the available expressions for use in the fields from year to second.
+Multiple expression can be given in a single field, separated by commas.</p>
+<div class="wy-table-responsive"><table border="1" class="docutils">
+<colgroup>
+<col width="13%">
+<col width="5%">
+<col width="82%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Expression</th>
+<th class="head">Field</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">*</span></code></td>
+<td>any</td>
+<td>Fire on every value</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">*/a</span></code></td>
+<td>any</td>
+<td>Fire every <code class="docutils literal"><span class="pre">a</span></code> values, starting from the minimum</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">a-b</span></code></td>
+<td>any</td>
+<td>Fire on any value within the <code class="docutils literal"><span class="pre">a-b</span></code> range (a must be smaller than b)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">a-b/c</span></code></td>
+<td>any</td>
+<td>Fire every <code class="docutils literal"><span class="pre">c</span></code> values within the <code class="docutils literal"><span class="pre">a-b</span></code> range</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xth</span> <span class="pre">y</span></code></td>
+<td>day</td>
+<td>Fire on the <code class="docutils literal"><span class="pre">x</span></code> -th occurrence of weekday <code class="docutils literal"><span class="pre">y</span></code> within the month</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">last</span> <span class="pre">x</span></code></td>
+<td>day</td>
+<td>Fire on the last occurrence of weekday <code class="docutils literal"><span class="pre">x</span></code> within the month</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">last</span></code></td>
+<td>day</td>
+<td>Fire on the last day within the month</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">x,y,z</span></code></td>
+<td>any</td>
+<td>Fire on any matching expression; can combine any number of any of the above expressions</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">month</span></code> and <code class="docutils literal"><span class="pre">day_of_week</span></code> fields accept abbreviated English month and weekday names
+(<code class="docutils literal"><span class="pre">jan</span></code> – <code class="docutils literal"><span class="pre">dec</span></code> and <code class="docutils literal"><span class="pre">mon</span></code> – <code class="docutils literal"><span class="pre">sun</span></code>) respectively.</p>
+</div>
+</div>
+<div class="section" id="daylight-saving-time-behavior">
+<h2>Daylight saving time behavior<a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#daylight-saving-time-behavior" title="Permalink to this headline">¶</a></h2>
+<p>The cron trigger works with the so-called “wall clock” time. Thus, if the selected time zone observes DST (daylight
+saving time), you should be aware that it may cause unexpected behavior with the cron trigger when entering or leaving
+DST. When switching from standard time to daylight saving time, clocks are moved either one hour or half an hour
+forward, depending on the time zone. Likewise, when switching back to standard time, clocks are moved one hour or half
+an hour backward. This will cause some time periods to either not exist at all, or be repeated. If your schedule would
+have the job executed on either one of these periods, it may execute more often or less often than expected.
+This is not a bug. If you wish to avoid this, either use a timezone that does not observe DST, for instance UTC.
+Alternatively, just find out about the DST switch times and avoid them in your scheduling.</p>
+<p>For example, the following schedule may be problematic:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># In the Europe/Helsinki timezone, this will not execute at all on the last sunday morning of March</span>
+<span class="c1"># Likewise, it will execute twice on the last sunday morning of October</span>
+<span class="n">sched</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job_function</span><span class="p">,</span> <span class="s1">'cron'</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apscheduler.schedulers.blocking</span> <span class="k">import</span> <span class="n">BlockingScheduler</span>
+
+
+<span class="k">def</span> <span class="nf">job_function</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="s2">"Hello World"</span>
+
+<span class="n">sched</span> <span class="o">=</span> <span class="n">BlockingScheduler</span><span class="p">()</span>
+
+<span class="c1"># Schedules job_function to be run on the third Friday</span>
+<span class="c1"># of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00</span>
+<span class="n">sched</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job_function</span><span class="p">,</span> <span class="s1">'cron'</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="s1">'6-8,11-12'</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="s1">'3rd fri'</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="s1">'0-3'</span><span class="p">)</span>
+
+<span class="n">sched</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal"><span class="pre">start_date</span></code> and <code class="docutils literal"><span class="pre">end_date</span></code> to limit the total time in which the schedule runs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Runs from Monday to Friday at 5:30 (am) until 2014-05-30 00:00:00</span>
+<span class="n">sched</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job_function</span><span class="p">,</span> <span class="s1">'cron'</span><span class="p">,</span> <span class="n">day_of_week</span><span class="o">=</span><span class="s1">'mon-fri'</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">'2014-05-30'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="https://apscheduler.readthedocs.io/en/latest/modules/schedulers/base.html#apscheduler.schedulers.base.BaseScheduler.scheduled_job" title="apscheduler.schedulers.base.BaseScheduler.scheduled_job"><code class="xref py py-meth docutils literal"><span class="pre">scheduled_job()</span></code></a> decorator works nicely too:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@sched</span><span class="o">.</span><span class="n">scheduled_job</span><span class="p">(</span><span class="s1">'cron'</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">'my_job_id'</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="s1">'last sun'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">some_decorated_task</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"I am printed at 00:00:00 on the last Sunday of every month!"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To schedule a job using a standard crontab expression:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sched</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job_function</span><span class="p">,</span> <span class="n">CronTrigger</span><span class="o">.</span><span class="n">from_crontab</span><span class="p">(</span><span class="s1">'0 0 1-15 may-aug *'</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">jitter</span></code> option enables you to add a random component to the execution time. This might be useful if you have
+multiple servers and don’t want them to run a job at the exact same moment or if you want to prevent jobs from running
+at sharp hours:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Run the `job_function` every sharp hour with an extra-delay picked randomly in a [-120,+120] seconds window.</span>
+<span class="n">sched</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job_function</span><span class="p">,</span> <span class="s1">'cron'</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="s1">'*'</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr><div class="rtd-pro-footer-wrapper"><div class="rtd-pro rtd-pro-footer"><div class="rtd-pro-about"><a href="https://readthedocs.org/sustainability/advertising/"><span>Sponsored </span><i class="fa fa-info-circle"></i></a></div><img style="display: none;" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/saved_resource"><span><b>Reach 7 million devs</b> each month when you <a class="rtd-pro-link" href="https://readthedocs.org/sustainability/click/160/0C2YrOP8RZOA/" target="_blank">advertise with Read the Docs</a>.</span><p class="ethical-callout"><small><em><a href="https://docs.readthedocs.io/en/latest/ethical-advertising.html">Ads served ethically</a></em></small></p></div><div class="rtd-pro-wrapper"></div></div><hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright Alex Grönholm.
+      
+        <span class="commit">
+          Revision <code>e3a90be4</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+<div class="injected">
+
+  
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+         <strong> 
+        <dd><a href="http://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html">latest</a></dd>
+         </strong> 
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/stable/modules/triggers/cron.html">stable</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.5.1/modules/triggers/cron.html">v3.5.1</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.5.0/modules/triggers/cron.html">v3.5.0</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.4.0/modules/triggers/cron.html">v3.4.0</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/3.3.1/modules/triggers/cron.html">3.3.1</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.3.0/modules/triggers/cron.html">v3.3.0</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.2.0/modules/triggers/cron.html">v3.2.0</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.0.5/modules/triggers/cron.html">v3.0.5</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.0.3/modules/triggers/cron.html">v3.0.3</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v3.0.2/modules/triggers/cron.html">v3.0.2</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/3.0/modules/triggers/cron.html">3.0</a></dd>
+        
+        
+        
+        <dd><a href="http://apscheduler.readthedocs.io/en/v2.1.2/modules/triggers/cron.html">v2.1.2</a></dd>
+        
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://readthedocs.org/projects/apscheduler/downloads/pdf/latest/">PDF</a></dd>
+        
+        <dd><a href="https://readthedocs.org/projects/apscheduler/downloads/htmlzip/latest/">HTML</a></dd>
+        
+        <dd><a href="https://readthedocs.org/projects/apscheduler/downloads/epub/latest/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/apscheduler/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/apscheduler/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/apscheduler/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/agronholm/apscheduler/blob/master/docs/modules/triggers/cron.rst">View</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/agronholm/apscheduler/edit/master/docs/modules/triggers/cron.rst">Edit</a>
+        </dd>
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/apscheduler/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+
+
+      <hr>
+      
+      Free document hosting provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+      
+
+      
+
+</div>
+</div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.5.0.post7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/underscore.js"></script>
+      <script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/doctools.js"></script>
+      <script type="text/javascript" src="./apscheduler.triggers.cron — APScheduler 3.5.0.post7 documentation_files/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+</body></html>
